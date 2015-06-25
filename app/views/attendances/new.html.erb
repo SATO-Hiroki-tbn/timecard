@@ -1,0 +1,16 @@
+<h1 class="uk-h3">出勤登録 <%= @work_date.strftime('%Y年 %m月') %></h1>
+<%= link_to_search %>
+<%= render 'form' %>
+
+<div class="uk-grid">
+<div class="uk-text-center uk-width-1-3">
+<%= link_to '先月', new_attendance_path(work_date: @work_date-1.month) %></div>
+<div class="uk-text-center uk-width-1-3">
+<%= link_to '今月', new_attendance_path(work_date: Date.today) %></div>
+<div class="uk-text-center uk-width-1-3">
+<%= link_to '次月', new_attendance_path(work_date: @work_date+1.month) %></div>
+</div>
+
+<%= render @attendance %>
+
+ 

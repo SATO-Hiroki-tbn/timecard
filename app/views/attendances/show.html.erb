@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @attendance.user_id %>
+</p>
+
+<p>
+  <strong>Work date:</strong>
+  <%= @attendance.work_date %>
+</p>
+
+<p>
+  <strong>In time:</strong>
+  <%= @attendance.in_time %>
+</p>
+
+<p>
+  <strong>Out time:</strong>
+  <%= @attendance.out_time %>
+</p>
+
+<p>
+  <strong>Project name:</strong>
+  <%= @attendance.project_name %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @attendance.place %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @attendance.description %>
+</p>
+
+<%= link_to 'Edit', edit_attendance_path(@attendance) %> |
+<%= link_to 'Back', attendances_path %>

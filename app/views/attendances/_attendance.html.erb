@@ -1,0 +1,29 @@
+<table class="uk-table uk-table-striped">
+  <thead>
+    <tr>
+      <th>Work date</th>
+      <th>In time</th>
+      <th>Out time</th>
+      <th>Description</th>
+      <th>updated</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attendances.each do |attend| %>
+      <tr>
+        <% if attend.first[1] %>
+        <td><%= attend.first[0] %> <%= attend.first[0].strftime('(%a)') %>
+        <%= link_to edit_attendance_path(attend.first[1]) do  %> <i class="uk-icon-edit"></i><% end %></td>
+        <% else %>
+        <td><%= attend.first[0] %> <%= attend.first[0].strftime('(%a)') %></td>
+        <% end %>
+        <td><%= attend.first[1].try(:in_time) %></td>
+        <td><%= attend.first[1].try(:out_time) %></td>
+        <td><%= attend.first[1].try(:description) %></td>
+        <td><%= attend.first[1].try(:updated_at).try(:strftime, '%x %X') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

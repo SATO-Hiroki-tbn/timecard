@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_profile.user_id %>
+</p>
+
+<p>
+  <strong>Employee no:</strong>
+  <%= @user_profile.employee_no %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @user_profile.lastname %>
+</p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @user_profile.firstname %>
+</p>
+
+<p>
+  <strong>In regular:</strong>
+  <%= @user_profile.in_regular %>
+</p>
+
+<p>
+  <strong>Out regular:</strong>
+  <%= @user_profile.out_regular %>
+</p>
+
+<%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |
+<%= link_to 'Back', user_profiles_path %>

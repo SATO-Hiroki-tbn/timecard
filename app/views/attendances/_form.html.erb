@@ -1,0 +1,52 @@
+<%= form_for(@attendance, html: {class: 'uk-form'}) do |f| %>
+  <% if @attendance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attendance.errors.count, "error") %> prohibited this attendance from being saved:</h2>
+
+      <ul>
+      <% @attendance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="uk-grid">
+  <div class="">
+    <%= f.label "プロジェクト名" %><br>
+    <%= f.text_field :project_name %>
+  </div>
+  <div class="field1">
+    <%= f.label "場所" %><br>
+    <%= f.text_field :place %>
+  </div>
+  <div class="field1">
+    <%= f.label "ユーザ" %><br>
+    <%= f.hidden_field :user_id %>
+    <%= @attendance.user.user_profile.lastname %> <%= @attendance.user.user_profile.firstname %>
+  </div>
+  </div>
+
+  <div class="uk-grid">
+  <div class="uk-width-2-10">
+    <%= f.label "日付" %><br>
+    <%= f.date_field :work_date %>
+  </div>
+  <div class="uk-width-1-10">
+    <%= f.label "出社" %><br>
+    <%= f.select :in_time, work_times, class: "uk-width-1-1", include_blank: true %>
+  </div>
+  <div class="uk-width-1-10">
+    <%= f.label "退社" %><br>
+    <%= f.select :out_time, work_times, class: "", include_blank: true %>
+  </div>
+  <div class="uk-width-4-10">
+    <%= f.label "備考" %><br>
+    <%= f.text_field :description, class: "uk-width-1-1" %>
+  </div>
+  <div class="uk-width-1-10"><br>
+    <%= f.submit nil, class: "uk-button uk-button-primary" %>
+  </div>
+  </div>  
+  
+<% end %>
