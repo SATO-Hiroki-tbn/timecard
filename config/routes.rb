@@ -1,7 +1,11 @@
 Timecard::Application.routes.draw do
   devise_for :users
   resources :user_profiles, except: [:index]
-  resources :attendances
+  resources :attendances do
+    collection do
+      get 'export_csv'
+    end
+  end
   resources :teams
   resources :users_teams
 

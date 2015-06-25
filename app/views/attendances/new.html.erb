@@ -12,5 +12,5 @@
 </div>
 
 <%= render @attendance %>
-
+<%= link_to "#{@work_date.strftime '%Y-%m'} export", export_csv_attendances_path(work_date: @work_date) %>
  
